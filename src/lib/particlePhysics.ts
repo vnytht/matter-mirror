@@ -23,7 +23,7 @@ export function updateParticles(
     handActive?: boolean;
   }
 ) {
-  const { returnSpeed, scatterForce, damping, turbulence = 0, pinchPoint, handActive } = params;
+  const { returnSpeed, scatterForce, damping, turbulence = 0 } = params;
 
   // Exponential lerp factor for smooth return — key ascii-girl technique
   const lerpT = 1 - Math.exp(-returnSpeed * 2 * dt);

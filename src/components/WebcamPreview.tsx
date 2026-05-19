@@ -23,14 +23,6 @@ const PALM_INDICES = [0, 5, 9, 13, 17];
 // Gesture hold frames before triggering (anti-flicker)
 const HOLD_FRAMES = 8;
 
-// Map MediaPipe normalized coords → Three.js world coords
-// Camera sits at z=600 looking at origin; FOV 45° gives ~500 wide at z=0
-const toWorldPos = (nx: number, ny: number, nz: number): THREE.Vector3 => ({
-  x: (0.5 - nx) * 500,   // flip X (video mirrored)
-  y: (0.5 - ny) * 280,   // flip Y (screen Y down, world Y up)
-  z: -nz * 150,
-} as unknown as THREE.Vector3);
-
 // Lerp between two hex colors by t (0–1)
 function lerpColor(a: string, b: string, t: number): string {
   const ah = parseInt(a.slice(1), 16);

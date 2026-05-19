@@ -99,7 +99,7 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ particles, appState, p
             const geo = new TextGeometry(ch, {
               font,
               size: 4.0,        // scaled up to match scene coordinate space
-              height: 0.1,      // very thin 3D extrusion — matches ascii-girl feel
+              depth: 0.1,       // very thin 3D extrusion — matches ascii-girl feel
               curveSegments: 2, // performance — matches ascii-girl
             });
             geo.center();
