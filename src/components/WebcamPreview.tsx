@@ -75,9 +75,14 @@ export const WebcamPreview: React.FC<WebcamPreviewProps> = ({ isActive, onGestur
     let active = true;
 
     const setup = async () => {
-      if (!initialized.current) {
-        await initMediaPipe();
-        initialized.current = true;
+      try {
+        if (!initialized.current) {
+          await initMediaPipe();
+          initialized.current = true;
+        }
+      } catch (err) {
+        console.error('[MatterMirror] MediaPipe failed to initialize:', err);
+        return;
       }
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
